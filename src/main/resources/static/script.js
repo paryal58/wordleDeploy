@@ -4,7 +4,7 @@ let lives = 6;
 // Get word from the backend
 async function pickWord() {
   try {
-    const res = await fetch("http://localhost:8080/api/word");
+    const res = await fetch("/api/word");
     pickedWord = (await res.text()).toLowerCase();
   } catch (e) {
     alert("Failed to fetch word");
@@ -79,12 +79,12 @@ async function submitName() {
     return;
   }
   try {
-    await fetch("http://localhost:8080/api/player", {
+    await fetch("/api/player", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name })
     });
-    await fetch(`http://localhost:8080/api/player/${encodeURIComponent(name)}/increment`, {
+    await fetch(`/api/player/${encodeURIComponent(name)}/increment`, {
       method: "PUT"
     });
     Swal.fire({ icon: 'info', title: 'Score saved! Reloading...', confirmButtonColor: '#3085d6' });
@@ -97,7 +97,7 @@ async function submitName() {
 // Fetch leaderboard at each reload
 async function fetchLeaderboard() {
   try {
-    const res = await fetch("http://localhost:8080/api/players/top");
+    const res = await fetch("/api/players/top");
     const players = await res.json();
     const list = document.getElementById("leaderboard-list");
     list.innerHTML = "";
