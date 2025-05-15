@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pras58 | Wordle Clone</title>
+  <script src="script.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <h1 id="title">Wordle Clone</h1>
+
+  <div id="leaderboard">
+    <h3>Leaderboard</h3>
+    <ul id="leaderboard-list"></ul>
+  </div>
+
+  <div class="input-container">
+    <input id="value" type="text" maxlength="5" placeholder="Enter guess" onkeydown="if (event.key == 'Enter') guess()" />
+    <button onclick="guess()">Guess</button>
+  </div>
+
+  <div id="guesses"></div>
+
+  <div id="namePopup">
+    <p>You won! Enter your name:</p>
+    <input id="playerName" type="text" placeholder="Your name" maxlength="20" />
+    <button onclick="submitName()">Submit</button>
+  </div>
+
+</body>
+</html>
