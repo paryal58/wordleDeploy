@@ -150,3 +150,9 @@ button:hover:not(:disabled) {
   margin-bottom: 15px;
   text-transform: none;
 }
+
+@media(max-width: 800px) {
+  #leaderboard {
+    display: none;
+  }
+}
