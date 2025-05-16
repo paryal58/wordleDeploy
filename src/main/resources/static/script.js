@@ -60,8 +60,15 @@ function guess() {
   if (text !== pickedWord) {
     lives--;
     if (lives <= 0) {
-      Swal.fire({ icon: 'info', title: 'Out of lives!', text: `The word was "${pickedWord.toUpperCase()}`, confirmButtonColor: '#3085d6' });
-      location.reload();
+      Swal.fire({icon: 'info',
+        title: 'Out of lives!',
+        text: `The word was ${pickedWord.toUpperCase()}`,
+        timer: 2000,
+        timerProgressBar: true,
+        showConfirmButton: false
+      }).then(() => {
+        location.reload();
+      });
     }
   }
   else {
